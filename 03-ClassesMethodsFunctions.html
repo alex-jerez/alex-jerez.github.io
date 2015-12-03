@@ -1,0 +1,108 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="./favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="./apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="./style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="./03-ClassesMethodsFunctions.html" title="03 Classes, Functions and Methods">03 Classes, Functions and Methods</a></h1>
+  
+
+<h2 id="functions:d03ab93178de607784a26d77dfb0842f">Functions</h2>
+
+<p>a <strong>function</strong> is a reusable <strong>user-defined action</strong>.</p>
+
+<pre><code>def sayHello():
+    print &quot;Hello&quot;
+
+def saysomething(x):
+    print x
+
+&gt;&gt;&gt; def sayHello():
+...     print &quot;Hello&quot;
+... 
+&gt;&gt;&gt; def saysomething(x):
+...     print x
+... 
+&gt;&gt;&gt; sayHello()
+Hello
+&gt;&gt;&gt; saysomething(&quot;HEY&quot;)
+HEY
+&gt;&gt;&gt; 
+</code></pre>
+
+<h2 id="classes-methods:d03ab93178de607784a26d77dfb0842f">Classes &amp; Methods</h2>
+
+<pre><code>class TransportationVehicle(object):
+     def __init__(self):
+        self.wheels = None
+        self.color = None
+        self.brand = None
+
+class Car(TransportationVehicle):
+    def __init__(self, color, year, make):
+        self.color = color
+        self.year = year
+        self.make = make
+
+    def __repr__(self):
+        return &quot;this car is a %s %s %s&quot; % (self.color,
+                self.year,
+                self.make)
+
+    def about(self):
+        print &quot;this car is a %s %s %s&quot; % (self.color,
+                self.year,
+                self.make)
+
+    @staticmethod
+    def honk():
+        print &quot;HONK!&quot;
+</code></pre>
+
+<h3 id="static-methods:d03ab93178de607784a26d77dfb0842f">Static Methods</h3>
+
+<h3 id="class-methods:d03ab93178de607784a26d77dfb0842f">Class Methods</h3>
+
+<pre><code>    car_one = Car(&quot;red&quot;, 2005, &quot;Toyota&quot;)
+    car_two = Car(&quot;black&quot;, 2001, &quot;Honda&quot;)
+
+</code></pre>
+
+<pre><code>f = open('cars.txt', 'rw')
+num = 0
+var = dict()
+for line in f:
+    l = line.split('-')
+    var[num] = Car(l[0],l[1], l[2]) 
+    num += 1
+</code></pre>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+    <link>/</link>
+    <description>Recent content on Intermediate Python Workshop - Dec 5, 2015 </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>01 Intro</title>
+      <link>/01-Intro.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/01-Intro.html</guid>
+      <description>
+
+&lt;h2 id=&#34;this-workshop:98873e55c627754d1448de6a9077bcd9&#34;&gt;This Workshop&lt;/h2&gt;
+
+&lt;p&gt;The goal of this workshop is to obtain a fundamental understanding of some of the more intermediate to advanced practices of the Python Programming language.&lt;/p&gt;
+
+&lt;h2 id=&#34;about-me:98873e55c627754d1448de6a9077bcd9&#34;&gt;About Me&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Alex Jerez&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Long Time Python and Linux User&lt;/li&gt;
+&lt;li&gt;Launched Crosshatch, a content-sharing app in 2011, flopped, but it was a great learning experience.&lt;/li&gt;
+&lt;li&gt;Currently working as a Django Backend Developer for ABI Research in Oyster Bay, NY&lt;/li&gt;
+&lt;li&gt;You can find me online at &lt;strong&gt;@notalexjerez&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;requirements:98873e55c627754d1448de6a9077bcd9&#34;&gt;Requirements&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;A terminal environment running Python 2.7+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A text editor or IDE (Sublime Text, PyCharm, etc)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you&amp;rsquo;ll be connecting to our server, you will need a terminal based editor like vim, nano, emacs&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;connect-to-our-linux-server:98873e55c627754d1448de6a9077bcd9&#34;&gt;Connect to our Linux Server&lt;/h2&gt;
+
+&lt;p&gt;You may connect to our dedicated Linux server if you would prefer not to create a python environment on your computer.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-your-environment-and-activate-it:98873e55c627754d1448de6a9077bcd9&#34;&gt;Create your Environment and Activate it&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;mkvirtualenv pythonworkshop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Your terminal should have (mkvirtualenv) before the dollar sign.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now let&amp;rsquo;s go!!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>02 Data Structures</title>
+      <link>/02-DataStructures.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/02-DataStructures.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>03 Classes, Functions and Methods</title>
+      <link>/03-ClassesMethodsFunctions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/03-ClassesMethodsFunctions.html</guid>
+      <description>
+
+&lt;h2 id=&#34;functions:d03ab93178de607784a26d77dfb0842f&#34;&gt;Functions&lt;/h2&gt;
+
+&lt;p&gt;a &lt;strong&gt;function&lt;/strong&gt; is a reusable &lt;strong&gt;user-defined action&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def sayHello():
+    print &amp;quot;Hello&amp;quot;
+
+def saysomething(x):
+    print x
+
+&amp;gt;&amp;gt;&amp;gt; def sayHello():
+...     print &amp;quot;Hello&amp;quot;
+... 
+&amp;gt;&amp;gt;&amp;gt; def saysomething(x):
+...     print x
+... 
+&amp;gt;&amp;gt;&amp;gt; sayHello()
+Hello
+&amp;gt;&amp;gt;&amp;gt; saysomething(&amp;quot;HEY&amp;quot;)
+HEY
+&amp;gt;&amp;gt;&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;classes-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Classes &amp;amp; Methods&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;class TransportationVehicle(object):
+     def __init__(self):
+        self.wheels = None
+        self.color = None
+        self.brand = None
+
+class Car(TransportationVehicle):
+    def __init__(self, color, year, make):
+        self.color = color
+        self.year = year
+        self.make = make
+
+    def __repr__(self):
+        return &amp;quot;this car is a %s %s %s&amp;quot; % (self.color,
+                self.year,
+                self.make)
+
+    def about(self):
+        print &amp;quot;this car is a %s %s %s&amp;quot; % (self.color,
+                self.year,
+                self.make)
+
+    @staticmethod
+    def honk():
+        print &amp;quot;HONK!&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;static-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Static Methods&lt;/h3&gt;
+
+&lt;h3 id=&#34;class-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Class Methods&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    car_one = Car(&amp;quot;red&amp;quot;, 2005, &amp;quot;Toyota&amp;quot;)
+    car_two = Car(&amp;quot;black&amp;quot;, 2001, &amp;quot;Honda&amp;quot;)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;f = open(&#39;cars.txt&#39;, &#39;rw&#39;)
+num = 0
+var = dict()
+for line in f:
+    l = line.split(&#39;-&#39;)
+    var[num] = Car(l[0],l[1], l[2]) 
+    num += 1
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>04 ErrorsExceptions</title>
+      <link>/04-ErrorsExceptions.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/04-ErrorsExceptions.html</guid>
+      <description>
+
+&lt;h3 id=&#34;syntax-errors:e43883508a7f99dd6933e5556c472b05&#34;&gt;Syntax Errors&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Syntax Errors&lt;/strong&gt; are Errors in your code that impair the Python interpreter&amp;rsquo;s ability to properly read your code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Example 1
+#
+#
+#
+&amp;gt;&amp;gt;&amp;gt; def sayHello():
+...     print &amp;quot;hello
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 2
+    print &amp;quot;hello
+               ^
+SyntaxError: EOL while scanning string literal
+&amp;gt;&amp;gt;&amp;gt; 
+
+#
+#
+#
+# Example 2
+
+&amp;gt;&amp;gt;&amp;gt; f = []
+&amp;gt;&amp;gt;&amp;gt; print f
+[]
+&amp;gt;&amp;gt;&amp;gt; return f
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1
+SyntaxError: &#39;return&#39; outside function
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;exceptions:e43883508a7f99dd6933e5556c472b05&#34;&gt;Exceptions&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Exceptions&lt;/strong&gt; happen when your code is syntactically correct, but something went wrong while the code was being executed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+# AttributeError:
+
+&amp;gt;&amp;gt;&amp;gt; w = &amp;quot;word&amp;quot;
+&amp;gt;&amp;gt;&amp;gt; w
+&#39;word&#39;
+&amp;gt;&amp;gt;&amp;gt; w.append(&#39;hello&#39;)
+Traceback (most recent call last):
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+AttributeError: &#39;str&#39; object has no attribute &#39;append&#39;
+
+
+# NameError:
+
+&amp;gt;&amp;gt;&amp;gt; w = &amp;quot;word&amp;quot;
+&amp;gt;&amp;gt;&amp;gt; print r
+Traceback (most recent call last):
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+NameError: name &#39;r&#39; is not defined
+
+# ZeroDivisionError:
+
+&amp;gt;&amp;gt;&amp;gt; print 5/0
+Traceback (most recent call last):
+  File &amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;, line 1, in &amp;lt;module&amp;gt;
+ZeroDivisionError: integer division or modulo by zero
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using &lt;code&gt;try&lt;/code&gt; and &lt;code&gt;finally&lt;/code&gt; to work around errors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; phrase = &amp;quot;Hello&amp;quot;
+&amp;gt;&amp;gt;&amp;gt; try:
+...     phrase.append(&amp;quot; World&amp;quot;)
+... except AttributeError:
+...     phrase += &amp;quot; World&amp;quot;
+... 
+&amp;gt;&amp;gt;&amp;gt; print phrase
+Hello World
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>05 Decorators</title>
+      <link>/05-Decorators.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/05-Decorators.html</guid>
+      <description>
+
+&lt;p&gt;&lt;em&gt;(Excerpt from &lt;a href=&#34;http://pythonhosted.org/decorator/documentation.html&#34;&gt;http://pythonhosted.org/decorator/documentation.html&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;to-be-revised:38f633754d5238d765e77c3f7dbc2482&#34;&gt;TO BE REVISED&lt;/h4&gt;
+
+&lt;p&gt;Assign functions to variables&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def greet(name):
+    return &amp;quot;hello &amp;quot;+name
+
+greet_someone = greet
+print greet_someone(&amp;quot;John&amp;quot;)
+
+# Outputs: hello John
+
+Define functions inside other functions
+
+def greet(name):
+    def get_message():
+        return &amp;quot;Hello &amp;quot;
+
+    result = get_message()+name
+    return result
+
+print greet(&amp;quot;John&amp;quot;)
+
+# Outputs: Hello John
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Functions can be passed as parameters to other functions&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def greet(name):
+   return &amp;quot;Hello &amp;quot; + name 
+
+def call_func(func):
+    other_name = &amp;quot;John&amp;quot;
+    return func(other_name)  
+
+print call_func(greet)
+
+# Outputs: Hello John
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Functions can return other functions
+In other words, functions generating other functions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def compose_greet_func():
+    def get_message():
+        return &amp;quot;Hello there!&amp;quot;
+
+    return get_message
+
+greet = compose_greet_func()
+print greet()
+
+# Outputs: Hello there!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Inner functions have access to the enclosing scope
+More commonly known as a closure. A very powerful pattern that we will come across while building decorators. Another thing to note, Python only allows read access to the outer scope and not assignment. Notice how we modified the example above to read a &amp;ldquo;name&amp;rdquo; argument from the enclosing scope of the inner function and return the new function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def compose_greet_func(name):
+    def get_message():
+        return &amp;quot;Hello there &amp;quot;+name+&amp;quot;!&amp;quot;
+
+    return get_message
+
+greet = compose_greet_func(&amp;quot;John&amp;quot;)
+print greet()
+
+# Outputs: Hello there John!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Composition of Decorators
+Function decorators are simply wrappers to existing functions. Putting the ideas mentioned above together, we can build a decorator. In this example let&amp;rsquo;s consider a function that wraps the string output of another function by p tags.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def get_text(name):
+   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
+
+def p_decorate(func):
+   def func_wrapper(name):
+       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
+   return func_wrapper
+
+my_get_text = p_decorate(get_text)
+
+print my_get_text(&amp;quot;John&amp;quot;)
+
+# &amp;lt;p&amp;gt;Outputs lorem ipsum, John dolor sit amet&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was our first decorator. A function that takes another function as an argument, generates a new function, augmenting the work of the original function, and returning the generated function so we can use it anywhere. To have get_text itself be decorated by p_decorate, we just have to assign get_text to the result of p_decorate.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;get_text = p_decorate(get_text)
+
+print get_text(&amp;quot;John&amp;quot;)
+
+# Outputs lorem ipsum, John dolor sit amet
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Another thing to notice is that our decorated function takes a name argument. All what we had to do in the decorator is to let the wrapper of get_text pass that argument.&lt;/p&gt;
+
+&lt;p&gt;Python&amp;rsquo;s Decorator Syntax
+Python makes creating and using decorators a bit cleaner and nicer for the programmer through some syntactic sugar To decorate get_text we don&amp;rsquo;t have to get_text = p_decorator(get_text) There is a neat shortcut for that, which is to mention the name of the decorating function before the function to be decorated. The name of the decorator should be perpended with an @ symbol.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def p_decorate(func):
+   def func_wrapper(name):
+       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
+   return func_wrapper
+
+@p_decorate
+def get_text(name):
+   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
+
+print get_text(&amp;quot;John&amp;quot;)
+
+# Outputs &amp;lt;p&amp;gt;lorem ipsum, John dolor sit amet&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s consider we wanted to decorate our get_text function by 2 other functions to wrap a div and strong tag around the string output.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def p_decorate(func):
+   def func_wrapper(name):
+       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
+   return func_wrapper
+
+def strong_decorate(func):
+    def func_wrapper(name):
+        return &amp;quot;&amp;lt;strong&amp;gt;{0}&amp;lt;/strong&amp;gt;&amp;quot;.format(func(name))
+    return func_wrapper
+
+def div_decorate(func):
+    def func_wrapper(name):
+        return &amp;quot;&amp;lt;div&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;quot;.format(func(name))
+    return func_wrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the basic approach, decorating get_text would be along the lines of&lt;/p&gt;
+
+&lt;p&gt;get_text = div_decorate(p_decorate(strong_decorate(get_text)))&lt;/p&gt;
+
+&lt;p&gt;With Python&amp;rsquo;s decorator syntax, same thing can be achieved with much more expressive power.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@div_decorate
+@p_decorate
+@strong_decorate
+def get_text(name):
+   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
+
+print get_text(&amp;quot;John&amp;quot;)
+
+# Outputs &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;lorem ipsum, John dolor sit amet&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;One important thing to notice here is that the order of setting our decorators matters. If the order was different in the example above, the output would have been different.&lt;/p&gt;
+
+&lt;p&gt;Decorating Methods
+In Python, methods are functions that expect their first parameter to be a reference to the current object. We can build decorators for methods the same way, while taking self into consideration in the wrapper function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def p_decorate(func):
+   def func_wrapper(self):
+       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(self))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = &amp;quot;John&amp;quot;
+        self.family = &amp;quot;Doe&amp;quot;
+
+    @p_decorate
+    def get_fullname(self):
+        return self.name+&amp;quot; &amp;quot;+self.family
+
+my_person = Person()
+print my_person.get_fullname()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A much better approach would be to make our decorator useful for functions and methods alike. This can be done by putting *args and **kwargs as parameters for the wrapper, then it can accept any arbitrary number of arguments and keyword arguments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def p_decorate(func):
+   def func_wrapper(*args, **kwargs):
+       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(*args, **kwargs))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = &amp;quot;John&amp;quot;
+        self.family = &amp;quot;Doe&amp;quot;
+
+    @p_decorate
+    def get_fullname(self):
+        return self.name+&amp;quot; &amp;quot;+self.family
+
+my_person = Person()
+
+print my_person.get_fullname()
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>06 Lunch</title>
+      <link>/06-Lunch.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/06-Lunch.html</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>07 Argparse</title>
+      <link>/07-Argparse.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/07-Argparse.html</guid>
+      <description>&lt;p&gt;A Great exanple of the use of argparse is the django-admin.py docs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ django-admin.py -h
+Usage: django-admin.py subcommand [options] [args]
+
+Options:
+  -v VERBOSITY, --verbosity=VERBOSITY
+                        Verbosity level; 0=minimal output, 1=normal output,
+                        2=verbose output, 3=very verbose output
+  --settings=SETTINGS   The Python path to a settings module, e.g.
+                        &amp;quot;myproject.settings.main&amp;quot;. If this isn&#39;t provided, the
+                        DJANGO_SETTINGS_MODULE environment variable will be
+                        used.
+  --pythonpath=PYTHONPATH
+                        A directory to add to the Python path, e.g.
+                        &amp;quot;/home/djangoprojects/myproject&amp;quot;.
+  --traceback           Raise on exception
+  --no-color            Don&#39;t colorize the command output.
+  --version             show program&#39;s version number and exit
+  -h, --help            show this help message and exit
+
+Type &#39;django-admin.py help &amp;lt;subcommand&amp;gt;&#39; for help on a specific subcommand.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;import argparse
+
+parser = argparse.ArgumentParser(description=&amp;quot;calculate X to the power of Y&amp;quot;)
+group = parser.add_mutually_exclusive_group()
+group.add_argument(&amp;quot;-v&amp;quot;, &amp;quot;--verbose&amp;quot;, action=&amp;quot;store_true&amp;quot;)
+group.add_argument(&amp;quot;-q&amp;quot;, &amp;quot;--quiet&amp;quot;, action=&amp;quot;store_true&amp;quot;)
+parser.add_argument(&amp;quot;x&amp;quot;, type=int, help=&amp;quot;the base&amp;quot;)
+parser.add_argument(&amp;quot;y&amp;quot;, type=int, help=&amp;quot;the exponent&amp;quot;)
+args = parser.parse_args()
+answer = args.x**args.y
+
+if args.quiet:
+    print answer
+elif args.verbose:
+    print &amp;quot;{} to the power {} equals {}&amp;quot;.format(args.x, args.y, answer)
+else:
+    print &amp;quot;{}^{} == {}&amp;quot;.format(args.x, args.y, answer)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>08 CSVs</title>
+      <link>/08-CSVs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/08-CSVs.html</guid>
+      <description>&lt;pre&gt;&lt;code&gt;import csv
+with open(&#39;test.csv&#39;, &#39;w&#39;, newline=&#39;&#39;) as fp:
+    a = csv.writer(fp, delimiter=&#39;,&#39;)
+    data = [[&#39;Me&#39;, &#39;You&#39;],
+            [&#39;293&#39;, &#39;219&#39;],
+            [&#39;54&#39;, &#39;13&#39;]]
+    a.writerows(data)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>09 Modules</title>
+      <link>/09-Modules.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/09-Modules.html</guid>
+      <description>
+
+&lt;h2 id=&#34;python-based-toolkits:5e0ebd9c4f2cf515efd778496a6f9fc6&#34;&gt;Python-Based Toolkits&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;MLPY&lt;/strong&gt; - regression algorithms, classification, clustering&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;PyML&lt;/strong&gt; (pyml.sourceforge.net)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;PyBrain&lt;/strong&gt; (pybrain.org) - Neural Networks&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;nltk&lt;/strong&gt; (www.nltk.org) - focuses on NLP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;matplotlib&lt;/strong&gt; (matplotlib.org) - 2D plotting&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;mdp-toolkit&lt;/strong&gt; (mdp-toolkit.sourceforge.net/) - modularized algorithms for data processing, parallelization&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;scikit-learn&lt;/strong&gt; (scikit-learn.org) - supervised learning, unsupervised learning, feature selection, regression, collections&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Orange&lt;/strong&gt; (&lt;a href=&#34;http://www.ailab.si/orange/&#34;&gt;http://www.ailab.si/orange/&lt;/a&gt;) - Statistical computing and data mining&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;c-c-implementations:5e0ebd9c4f2cf515efd778496a6f9fc6&#34;&gt;C/C++ Implementations&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;LIBLINEAR&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;LIBSVM&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;OpenCV&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;build-it-yourself:5e0ebd9c4f2cf515efd778496a6f9fc6&#34;&gt;Build it Yourself!&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;NumPy&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;SciPy&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Pandas&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>11 Threading</title>
+      <link>/10-Threading.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/10-Threading.html</guid>
+      <description>
+
+&lt;h2 id=&#34;global-variables:bd17743a4f2a0809eaae8ba786cb2f0e&#34;&gt;Global Variables&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Global variables&lt;/strong&gt; are variables that exist outside of a function that can be read and modified across multiple functions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;globvar = 0
+
+def set_globvar_to_one():
+    global globvar    # Needed to modify global copy of globvar
+    globvar = 1
+
+def print_globvar():
+    print globvar     # No need for global declaration to read value of globvar
+
+set_globvar_to_one()
+print_globvar()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unless the global variable is explicitly declared within the function as &lt;em&gt;global&lt;/em&gt;, the global variable does not get modified anywhere outside of the scope of that function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+## The Thread object
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;import time
+from threading import Thread&lt;/p&gt;
+
+&lt;p&gt;def countTo(num):
+    for number in range(num):
+        print number + 1
+        time.sleep(1)&lt;/p&gt;
+
+&lt;p&gt;thread1 = Thread(target=countTo, args=(5,))
+thread1.start()
+```&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

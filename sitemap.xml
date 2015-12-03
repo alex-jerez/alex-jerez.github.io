@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/01-Intro.html</loc>
+  </url>
+  
+  <url>
+    <loc>/02-DataStructures.html</loc>
+  </url>
+  
+  <url>
+    <loc>/03-ClassesMethodsFunctions.html</loc>
+  </url>
+  
+  <url>
+    <loc>/04-ErrorsExceptions.html</loc>
+  </url>
+  
+  <url>
+    <loc>/05-Decorators.html</loc>
+  </url>
+  
+  <url>
+    <loc>/06-Lunch.html</loc>
+  </url>
+  
+  <url>
+    <loc>/07-Argparse.html</loc>
+  </url>
+  
+  <url>
+    <loc>/08-CSVs.html</loc>
+  </url>
+  
+  <url>
+    <loc>/09-Modules.html</loc>
+  </url>
+  
+  <url>
+    <loc>/10-Threading.html</loc>
+  </url>
+  
+</urlset>

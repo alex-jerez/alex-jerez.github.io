@@ -1,0 +1,75 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="./favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="./apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="./style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="./10-Threading.html" title="11 Threading">11 Threading</a></h1>
+  
+
+<h2 id="global-variables:bd17743a4f2a0809eaae8ba786cb2f0e">Global Variables</h2>
+
+<p><strong>Global variables</strong> are variables that exist outside of a function that can be read and modified across multiple functions.</p>
+
+<pre><code>globvar = 0
+
+def set_globvar_to_one():
+    global globvar    # Needed to modify global copy of globvar
+    globvar = 1
+
+def print_globvar():
+    print globvar     # No need for global declaration to read value of globvar
+
+set_globvar_to_one()
+print_globvar()
+</code></pre>
+
+<p>Unless the global variable is explicitly declared within the function as <em>global</em>, the global variable does not get modified anywhere outside of the scope of that function.</p>
+
+<pre><code>
+## The Thread object
+
+
+</code></pre>
+
+<p>import time
+from threading import Thread</p>
+
+<p>def countTo(num):
+    for number in range(num):
+        print number + 1
+        time.sleep(1)</p>
+
+<p>thread1 = Thread(target=countTo, args=(5,))
+thread1.start()
+```</p>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

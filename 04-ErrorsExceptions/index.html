@@ -1,0 +1,115 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="../favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="../apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="../style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="../">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="../04-ErrorsExceptions/" title="04 ErrorsExceptions">04 ErrorsExceptions</a></h1>
+  
+
+<h3 id="syntax-errors:e43883508a7f99dd6933e5556c472b05">Syntax Errors</h3>
+
+<p><strong>Syntax Errors</strong> are Errors in your code that impair the Python interpreter&rsquo;s ability to properly read your code.</p>
+
+<pre><code># Example 1
+#
+#
+#
+&gt;&gt;&gt; def sayHello():
+...     print &quot;hello
+  File &quot;&lt;stdin&gt;&quot;, line 2
+    print &quot;hello
+               ^
+SyntaxError: EOL while scanning string literal
+&gt;&gt;&gt; 
+
+#
+#
+#
+# Example 2
+
+&gt;&gt;&gt; f = []
+&gt;&gt;&gt; print f
+[]
+&gt;&gt;&gt; return f
+  File &quot;&lt;stdin&gt;&quot;, line 1
+SyntaxError: 'return' outside function
+
+
+</code></pre>
+
+<h3 id="exceptions:e43883508a7f99dd6933e5556c472b05">Exceptions</h3>
+
+<p><strong>Exceptions</strong> happen when your code is syntactically correct, but something went wrong while the code was being executed.</p>
+
+<pre><code>
+# AttributeError:
+
+&gt;&gt;&gt; w = &quot;word&quot;
+&gt;&gt;&gt; w
+'word'
+&gt;&gt;&gt; w.append('hello')
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: 'str' object has no attribute 'append'
+
+
+# NameError:
+
+&gt;&gt;&gt; w = &quot;word&quot;
+&gt;&gt;&gt; print r
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name 'r' is not defined
+
+# ZeroDivisionError:
+
+&gt;&gt;&gt; print 5/0
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+ZeroDivisionError: integer division or modulo by zero
+
+
+</code></pre>
+
+<p>Using <code>try</code> and <code>finally</code> to work around errors.</p>
+
+<pre><code>&gt;&gt;&gt; phrase = &quot;Hello&quot;
+&gt;&gt;&gt; try:
+...     phrase.append(&quot; World&quot;)
+... except AttributeError:
+...     phrase += &quot; World&quot;
+... 
+&gt;&gt;&gt; print phrase
+Hello World
+</code></pre>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

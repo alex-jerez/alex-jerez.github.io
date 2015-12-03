@@ -1,0 +1,235 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="./favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="./apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="./style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="./05-Decorators.html" title="05 Decorators">05 Decorators</a></h1>
+  
+
+<p><em>(Excerpt from <a href="http://pythonhosted.org/decorator/documentation.html">http://pythonhosted.org/decorator/documentation.html</a>)</em></p>
+
+<h4 id="to-be-revised:38f633754d5238d765e77c3f7dbc2482">TO BE REVISED</h4>
+
+<p>Assign functions to variables</p>
+
+<pre><code>def greet(name):
+    return &quot;hello &quot;+name
+
+greet_someone = greet
+print greet_someone(&quot;John&quot;)
+
+# Outputs: hello John
+
+Define functions inside other functions
+
+def greet(name):
+    def get_message():
+        return &quot;Hello &quot;
+
+    result = get_message()+name
+    return result
+
+print greet(&quot;John&quot;)
+
+# Outputs: Hello John
+</code></pre>
+
+<p>Functions can be passed as parameters to other functions</p>
+
+<pre><code>def greet(name):
+   return &quot;Hello &quot; + name 
+
+def call_func(func):
+    other_name = &quot;John&quot;
+    return func(other_name)  
+
+print call_func(greet)
+
+# Outputs: Hello John
+</code></pre>
+
+<p>Functions can return other functions
+In other words, functions generating other functions.</p>
+
+<pre><code>def compose_greet_func():
+    def get_message():
+        return &quot;Hello there!&quot;
+
+    return get_message
+
+greet = compose_greet_func()
+print greet()
+
+# Outputs: Hello there!
+</code></pre>
+
+<p>Inner functions have access to the enclosing scope
+More commonly known as a closure. A very powerful pattern that we will come across while building decorators. Another thing to note, Python only allows read access to the outer scope and not assignment. Notice how we modified the example above to read a &ldquo;name&rdquo; argument from the enclosing scope of the inner function and return the new function.</p>
+
+<pre><code>def compose_greet_func(name):
+    def get_message():
+        return &quot;Hello there &quot;+name+&quot;!&quot;
+
+    return get_message
+
+greet = compose_greet_func(&quot;John&quot;)
+print greet()
+
+# Outputs: Hello there John!
+</code></pre>
+
+<p>Composition of Decorators
+Function decorators are simply wrappers to existing functions. Putting the ideas mentioned above together, we can build a decorator. In this example let&rsquo;s consider a function that wraps the string output of another function by p tags.</p>
+
+<pre><code>def get_text(name):
+   return &quot;lorem ipsum, {0} dolor sit amet&quot;.format(name)
+
+def p_decorate(func):
+   def func_wrapper(name):
+       return &quot;&lt;p&gt;{0}&lt;/p&gt;&quot;.format(func(name))
+   return func_wrapper
+
+my_get_text = p_decorate(get_text)
+
+print my_get_text(&quot;John&quot;)
+
+# &lt;p&gt;Outputs lorem ipsum, John dolor sit amet&lt;/p&gt;
+</code></pre>
+
+<p>That was our first decorator. A function that takes another function as an argument, generates a new function, augmenting the work of the original function, and returning the generated function so we can use it anywhere. To have get_text itself be decorated by p_decorate, we just have to assign get_text to the result of p_decorate.</p>
+
+<pre><code>get_text = p_decorate(get_text)
+
+print get_text(&quot;John&quot;)
+
+# Outputs lorem ipsum, John dolor sit amet
+</code></pre>
+
+<p>Another thing to notice is that our decorated function takes a name argument. All what we had to do in the decorator is to let the wrapper of get_text pass that argument.</p>
+
+<p>Python&rsquo;s Decorator Syntax
+Python makes creating and using decorators a bit cleaner and nicer for the programmer through some syntactic sugar To decorate get_text we don&rsquo;t have to get_text = p_decorator(get_text) There is a neat shortcut for that, which is to mention the name of the decorating function before the function to be decorated. The name of the decorator should be perpended with an @ symbol.</p>
+
+<pre><code>def p_decorate(func):
+   def func_wrapper(name):
+       return &quot;&lt;p&gt;{0}&lt;/p&gt;&quot;.format(func(name))
+   return func_wrapper
+
+@p_decorate
+def get_text(name):
+   return &quot;lorem ipsum, {0} dolor sit amet&quot;.format(name)
+
+print get_text(&quot;John&quot;)
+
+# Outputs &lt;p&gt;lorem ipsum, John dolor sit amet&lt;/p&gt;
+</code></pre>
+
+<p>Now let&rsquo;s consider we wanted to decorate our get_text function by 2 other functions to wrap a div and strong tag around the string output.</p>
+
+<pre><code>def p_decorate(func):
+   def func_wrapper(name):
+       return &quot;&lt;p&gt;{0}&lt;/p&gt;&quot;.format(func(name))
+   return func_wrapper
+
+def strong_decorate(func):
+    def func_wrapper(name):
+        return &quot;&lt;strong&gt;{0}&lt;/strong&gt;&quot;.format(func(name))
+    return func_wrapper
+
+def div_decorate(func):
+    def func_wrapper(name):
+        return &quot;&lt;div&gt;{0}&lt;/div&gt;&quot;.format(func(name))
+    return func_wrapper
+</code></pre>
+
+<p>With the basic approach, decorating get_text would be along the lines of</p>
+
+<p>get_text = div_decorate(p_decorate(strong_decorate(get_text)))</p>
+
+<p>With Python&rsquo;s decorator syntax, same thing can be achieved with much more expressive power.</p>
+
+<pre><code>@div_decorate
+@p_decorate
+@strong_decorate
+def get_text(name):
+   return &quot;lorem ipsum, {0} dolor sit amet&quot;.format(name)
+
+print get_text(&quot;John&quot;)
+
+# Outputs &lt;div&gt;&lt;p&gt;&lt;strong&gt;lorem ipsum, John dolor sit amet&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+</code></pre>
+
+<p>One important thing to notice here is that the order of setting our decorators matters. If the order was different in the example above, the output would have been different.</p>
+
+<p>Decorating Methods
+In Python, methods are functions that expect their first parameter to be a reference to the current object. We can build decorators for methods the same way, while taking self into consideration in the wrapper function.</p>
+
+<pre><code>def p_decorate(func):
+   def func_wrapper(self):
+       return &quot;&lt;p&gt;{0}&lt;/p&gt;&quot;.format(func(self))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = &quot;John&quot;
+        self.family = &quot;Doe&quot;
+
+    @p_decorate
+    def get_fullname(self):
+        return self.name+&quot; &quot;+self.family
+
+my_person = Person()
+print my_person.get_fullname()
+</code></pre>
+
+<p>A much better approach would be to make our decorator useful for functions and methods alike. This can be done by putting *args and **kwargs as parameters for the wrapper, then it can accept any arbitrary number of arguments and keyword arguments.</p>
+
+<pre><code>def p_decorate(func):
+   def func_wrapper(*args, **kwargs):
+       return &quot;&lt;p&gt;{0}&lt;/p&gt;&quot;.format(func(*args, **kwargs))
+   return func_wrapper
+
+class Person(object):
+    def __init__(self):
+        self.name = &quot;John&quot;
+        self.family = &quot;Doe&quot;
+
+    @p_decorate
+    def get_fullname(self):
+        return self.name+&quot; &quot;+self.family
+
+my_person = Person()
+
+print my_person.get_fullname()
+</code></pre>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

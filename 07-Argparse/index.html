@@ -1,0 +1,55 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="../favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="../apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="../style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="../">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="../07-Argparse/" title="07 Argparse">07 Argparse</a></h1>
+  <pre><code>import argparse
+
+parser = argparse.ArgumentParser(description=&quot;calculate X to the power of Y&quot;)
+group = parser.add_mutually_exclusive_group()
+group.add_argument(&quot;-v&quot;, &quot;--verbose&quot;, action=&quot;store_true&quot;)
+group.add_argument(&quot;-q&quot;, &quot;--quiet&quot;, action=&quot;store_true&quot;)
+parser.add_argument(&quot;x&quot;, type=int, help=&quot;the base&quot;)
+parser.add_argument(&quot;y&quot;, type=int, help=&quot;the exponent&quot;)
+args = parser.parse_args()
+answer = args.x**args.y
+
+if args.quiet:
+    print answer
+elif args.verbose:
+    print &quot;{} to the power {} equals {}&quot;.format(args.x, args.y, answer)
+else:
+    print &quot;{}^{} == {}&quot;.format(args.x, args.y, answer)
+</code></pre>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

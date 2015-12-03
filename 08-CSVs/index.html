@@ -1,0 +1,45 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="../favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="../apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="../style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="../">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WIML Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="../08-CSVs/" title="08 CSVs">08 CSVs</a></h1>
+  <pre><code>import csv
+with open('test.csv', 'w', newline='') as fp:
+    a = csv.writer(fp, delimiter=',')
+    data = [['Me', 'You'],
+            ['293', '219'],
+            ['54', '13']]
+    a.writerows(data)
+</code></pre>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>
