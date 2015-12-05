@@ -25,10 +25,10 @@
 &lt;p&gt;&lt;strong&gt;Alex Jerez&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Long Time Python and Linux User&lt;/li&gt;
-&lt;li&gt;Launched Crosshatch, a content-sharing app in 2011, flopped, but it was a great learning experience.&lt;/li&gt;
+&lt;li&gt;Long Time Coder and Linux user&lt;/li&gt;
+&lt;li&gt;Launched Crosshatch: A content-sharing app, in 2011 and Zoanee Pro: A fitness membership site, in 2015&lt;/li&gt;
 &lt;li&gt;Currently working as a Django Backend Developer for ABI Research in Oyster Bay, NY&lt;/li&gt;
-&lt;li&gt;You can find me online at &lt;strong&gt;@notalexjerez&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You can find me online &lt;strong&gt;@notalexjerez&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;requirements:98873e55c627754d1448de6a9077bcd9&#34;&gt;Requirements&lt;/h2&gt;
@@ -41,13 +41,11 @@
 &lt;li&gt;&lt;p&gt;If you&amp;rsquo;ll be connecting to our server, you will need a terminal based editor like vim, nano, emacs&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;connect-to-our-linux-server:98873e55c627754d1448de6a9077bcd9&#34;&gt;Connect to our Linux Server&lt;/h2&gt;
-
-&lt;p&gt;You may connect to our dedicated Linux server if you would prefer not to create a python environment on your computer.&lt;/p&gt;
-
 &lt;h2 id=&#34;create-your-environment-and-activate-it:98873e55c627754d1448de6a9077bcd9&#34;&gt;Create your Environment and Activate it&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;mkvirtualenv pythonworkshop
+&lt;pre&gt;&lt;code&gt;$ mkvirtualenv pythonworkshop
+$ workon pythonworkshop
+(pythonworkshop)$ 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Your terminal should have (mkvirtualenv) before the dollar sign.&lt;/p&gt;
@@ -62,7 +60,79 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/02-DataStructures.html</guid>
-      <description></description>
+      <description>
+
+&lt;h2 id=&#34;the-list:6c3c8caa6c1b6efe364c1f1c44dae28b&#34;&gt;The List&lt;/h2&gt;
+
+&lt;p&gt;A List is an unordered list of items that can be modified (mutable).  Lists might contain items of different types, but usually the items all have the same type.&lt;/p&gt;
+
+&lt;p&gt;common list actions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;append()
+remove()
+pop()
+index()
+reverse()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;x = [3,6,8,3,8,5,35,54]
+
+y = [[4,6,2], [7,9,4], [6,9,5]]
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-dictionary:6c3c8caa6c1b6efe364c1f1c44dae28b&#34;&gt;The Dictionary&lt;/h2&gt;
+
+&lt;p&gt;A &lt;strong&gt;dictionary&lt;/strong&gt; is an unordered set of key: value pairs&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# create dictionary &#39;d&#39;
+
+d = {&#39;firstname&#39;: &#39;Robert&#39;, &#39;age&#39;: 40, &#39;email&#39;: &#39;robert.smith@email.com&#39;}
+
+&amp;gt;&amp;gt;&amp;gt; d[&#39;firstname&#39;]
+&#39;Robert&#39;
+
+# use a for loop to iterate over dictionary &#39;d&#39;
+
+
+&amp;gt;&amp;gt;&amp;gt; for x in d:
+...     print x
+... 
+age
+email
+firstname
+
+# unpack d
+
+&amp;gt;&amp;gt;&amp;gt; for x,y in d.items():
+...     print x
+...     print y
+... 
+age
+40
+email
+robert.smith@email.com
+firstname
+Robert
+&amp;gt;&amp;gt;&amp;gt; 
+
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-tuple:6c3c8caa6c1b6efe364c1f1c44dae28b&#34;&gt;The Tuple&lt;/h2&gt;
+
+&lt;p&gt;Tuples are an ordered list of items similar to a list, but cannot be modified (immutable), and usually contains an heterogeneous sequence of elements that are accessed via unpacking rather than iterating, like with lists.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x, y, z = (12345, 54321, &#39;hello!&#39;)
+&amp;gt;&amp;gt;&amp;gt; x
+12345
+&amp;gt;&amp;gt;&amp;gt; y
+54321
+&amp;gt;&amp;gt;&amp;gt; z
+&#39;hello!&#39;
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
     <item>
@@ -96,6 +166,31 @@ HEY
 &amp;gt;&amp;gt;&amp;gt; 
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;args-and-kwargs:d03ab93178de607784a26d77dfb0842f&#34;&gt;*args and **kwargs&lt;/h2&gt;
+
+&lt;p&gt;adding *args and **kwargs to your function lets your function accept any argument. This is helpful for when you don&amp;rsquo;t know what variables you will be expecting.&lt;/p&gt;
+
+&lt;p&gt;*args catches all positional arguments&lt;/p&gt;
+
+&lt;p&gt;**kwargs catches all the keyword arguments.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def printeverything(*args, **kwargs):
+    for item in args:
+        print item
+    for key, value in kwargs.items():
+        print key, value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This function &lt;code&gt;printeverything()&lt;/code&gt; can now accept as many arguments and keyword arguments as you can throw at it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def printeverything(*args, **kwargs):
+    for item in args:
+        print item
+    for key, value in kwargs.items():
+        print key, value
+
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;classes-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Classes &amp;amp; Methods&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;class TransportationVehicle(object):
@@ -120,33 +215,43 @@ class Car(TransportationVehicle):
                 self.year,
                 self.make)
 
-    @staticmethod
-    def honk():
-        print &amp;quot;HONK!&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;car_one = Car(&amp;quot;red&amp;quot;, 2005, &amp;quot;Toyota&amp;quot;)
+car_two = Car(&amp;quot;black&amp;quot;, 2001, &amp;quot;Honda&amp;quot;)
+
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;static-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Static Methods&lt;/h3&gt;
 
-&lt;h3 id=&#34;class-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Class Methods&lt;/h3&gt;
+&lt;p&gt;a &lt;strong&gt;static method&lt;/strong&gt; is a function inside of your class that doesn&amp;rsquo;t depend on the class object. By adding a &lt;code&gt;@staticmethod&lt;/code&gt; decorator to your function, it becomes a static method.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    car_one = Car(&amp;quot;red&amp;quot;, 2005, &amp;quot;Toyota&amp;quot;)
-    car_two = Car(&amp;quot;black&amp;quot;, 2001, &amp;quot;Honda&amp;quot;)
-
+&lt;pre&gt;&lt;code&gt;    @staticmethod
+    def honk():
+        print &amp;quot;HONK!&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;f = open(&#39;cars.txt&#39;, &#39;rw&#39;)
-num = 0
-var = dict()
-for line in f:
-    l = line.split(&#39;-&#39;)
-    var[num] = Car(l[0],l[1], l[2]) 
-    num += 1
+&lt;h3 id=&#34;class-methods:d03ab93178de607784a26d77dfb0842f&#34;&gt;Class Methods&lt;/h3&gt;
+
+&lt;p&gt;a &lt;strong&gt;class method&lt;/strong&gt; is another type of function inside of your class that &lt;em&gt;has&lt;/em&gt; to take a class object as the first argument.&lt;/p&gt;
+
+&lt;p&gt;Note that this is different from accepting an &lt;em&gt;instance&lt;/em&gt; of the class. This means that the function can return a class type that contains all the original functions and attributes.&lt;/p&gt;
+
+&lt;p&gt;A common use case for class methods are for initializing classes under arbitrary conditions.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;@classmethod
+def honkAndSay(cls, word):
+    cls.honk()
+    print word
+ 
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
     <item>
-      <title>04 ErrorsExceptions</title>
+      <title>04 Errors &amp; Exceptions</title>
       <link>/04-ErrorsExceptions.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -238,165 +343,48 @@ Hello World
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/05-Decorators.html</guid>
-      <description>
+      <description>&lt;p&gt;A &lt;strong&gt;decorator&lt;/strong&gt; is a function that takes a function and returns a modified version of it.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;(Excerpt from &lt;a href=&#34;http://pythonhosted.org/decorator/documentation.html&#34;&gt;http://pythonhosted.org/decorator/documentation.html&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This can be useful for&lt;/p&gt;
 
-&lt;h4 id=&#34;to-be-revised:38f633754d5238d765e77c3f7dbc2482&#34;&gt;TO BE REVISED&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;wrapping a return value and do something with it&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Assign functions to variables&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Checking for conditions before executing a function&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;def greet(name):
-    return &amp;quot;hello &amp;quot;+name
+&lt;p&gt;The Python Django framework has some good examples of decorators:&lt;/p&gt;
 
-greet_someone = greet
-print greet_someone(&amp;quot;John&amp;quot;)
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/1.8/topics/auth/default/#django.contrib.auth.decorators.login_required&#34;&gt;@login_required&lt;/a&gt;&lt;/em&gt; - added to functions that return a HTTP Response, makes sure the user is logged in before sending a HTTP Response. otherwise it will return a 404 Error.&lt;/p&gt;
 
-# Outputs: hello John
+&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://docs.djangoproject.com/en/1.8/topics/cache/#the-per-view-cache&#34;&gt;@cache_page&lt;/a&gt;&lt;/em&gt; - will cache the results of the output of the function that it decorates.&lt;/p&gt;
 
-Define functions inside other functions
+&lt;pre&gt;&lt;code&gt;def add_exclamation(func):
+    def inner(*args, **kwargs):
+            result = str(func(*args, **kwargs)) + &amp;quot;!&amp;quot;
+            return result
+    return inner
 
-def greet(name):
-    def get_message():
-        return &amp;quot;Hello &amp;quot;
+@add_exclamation
+def say(word):
+    return word
 
-    result = get_message()+name
-    return result
+def add(word):
+    def wrapper(orig_func):
+        def inner(*args, **kwargs):
+            result = str(orig_func(*args, **kwargs)) + word
+            return result
+        return inner
+    return wrapper
 
-print greet(&amp;quot;John&amp;quot;)
-
-# Outputs: Hello John
+@add(&amp;quot;?&amp;quot;)
+def sayWhat():
+    return &amp;quot;What&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Functions can be passed as parameters to other functions&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;[ &lt;a href=&#34;http://pythonhosted.org/decorator/documentation.html&#34;&gt;http://pythonhosted.org/decorator/documentation.html&lt;/a&gt; ]&lt;/em&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;def greet(name):
-   return &amp;quot;Hello &amp;quot; + name 
-
-def call_func(func):
-    other_name = &amp;quot;John&amp;quot;
-    return func(other_name)  
-
-print call_func(greet)
-
-# Outputs: Hello John
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Functions can return other functions
-In other words, functions generating other functions.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def compose_greet_func():
-    def get_message():
-        return &amp;quot;Hello there!&amp;quot;
-
-    return get_message
-
-greet = compose_greet_func()
-print greet()
-
-# Outputs: Hello there!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Inner functions have access to the enclosing scope
-More commonly known as a closure. A very powerful pattern that we will come across while building decorators. Another thing to note, Python only allows read access to the outer scope and not assignment. Notice how we modified the example above to read a &amp;ldquo;name&amp;rdquo; argument from the enclosing scope of the inner function and return the new function.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def compose_greet_func(name):
-    def get_message():
-        return &amp;quot;Hello there &amp;quot;+name+&amp;quot;!&amp;quot;
-
-    return get_message
-
-greet = compose_greet_func(&amp;quot;John&amp;quot;)
-print greet()
-
-# Outputs: Hello there John!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Composition of Decorators
-Function decorators are simply wrappers to existing functions. Putting the ideas mentioned above together, we can build a decorator. In this example let&amp;rsquo;s consider a function that wraps the string output of another function by p tags.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def get_text(name):
-   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
-
-def p_decorate(func):
-   def func_wrapper(name):
-       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
-   return func_wrapper
-
-my_get_text = p_decorate(get_text)
-
-print my_get_text(&amp;quot;John&amp;quot;)
-
-# &amp;lt;p&amp;gt;Outputs lorem ipsum, John dolor sit amet&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;That was our first decorator. A function that takes another function as an argument, generates a new function, augmenting the work of the original function, and returning the generated function so we can use it anywhere. To have get_text itself be decorated by p_decorate, we just have to assign get_text to the result of p_decorate.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;get_text = p_decorate(get_text)
-
-print get_text(&amp;quot;John&amp;quot;)
-
-# Outputs lorem ipsum, John dolor sit amet
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Another thing to notice is that our decorated function takes a name argument. All what we had to do in the decorator is to let the wrapper of get_text pass that argument.&lt;/p&gt;
-
-&lt;p&gt;Python&amp;rsquo;s Decorator Syntax
-Python makes creating and using decorators a bit cleaner and nicer for the programmer through some syntactic sugar To decorate get_text we don&amp;rsquo;t have to get_text = p_decorator(get_text) There is a neat shortcut for that, which is to mention the name of the decorating function before the function to be decorated. The name of the decorator should be perpended with an @ symbol.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def p_decorate(func):
-   def func_wrapper(name):
-       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
-   return func_wrapper
-
-@p_decorate
-def get_text(name):
-   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
-
-print get_text(&amp;quot;John&amp;quot;)
-
-# Outputs &amp;lt;p&amp;gt;lorem ipsum, John dolor sit amet&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s consider we wanted to decorate our get_text function by 2 other functions to wrap a div and strong tag around the string output.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def p_decorate(func):
-   def func_wrapper(name):
-       return &amp;quot;&amp;lt;p&amp;gt;{0}&amp;lt;/p&amp;gt;&amp;quot;.format(func(name))
-   return func_wrapper
-
-def strong_decorate(func):
-    def func_wrapper(name):
-        return &amp;quot;&amp;lt;strong&amp;gt;{0}&amp;lt;/strong&amp;gt;&amp;quot;.format(func(name))
-    return func_wrapper
-
-def div_decorate(func):
-    def func_wrapper(name):
-        return &amp;quot;&amp;lt;div&amp;gt;{0}&amp;lt;/div&amp;gt;&amp;quot;.format(func(name))
-    return func_wrapper
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With the basic approach, decorating get_text would be along the lines of&lt;/p&gt;
-
-&lt;p&gt;get_text = div_decorate(p_decorate(strong_decorate(get_text)))&lt;/p&gt;
-
-&lt;p&gt;With Python&amp;rsquo;s decorator syntax, same thing can be achieved with much more expressive power.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@div_decorate
-@p_decorate
-@strong_decorate
-def get_text(name):
-   return &amp;quot;lorem ipsum, {0} dolor sit amet&amp;quot;.format(name)
-
-print get_text(&amp;quot;John&amp;quot;)
-
-# Outputs &amp;lt;div&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;lorem ipsum, John dolor sit amet&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;One important thing to notice here is that the order of setting our decorators matters. If the order was different in the example above, the output would have been different.&lt;/p&gt;
-
-&lt;p&gt;Decorating Methods
-In Python, methods are functions that expect their first parameter to be a reference to the current object. We can build decorators for methods the same way, while taking self into consideration in the wrapper function.&lt;/p&gt;
+&lt;p&gt;In Python, methods are functions that expect their first parameter to be a reference to the current object. We can build decorators for methods the same way, while taking self into consideration in the wrapper function.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;def p_decorate(func):
    def func_wrapper(self):
@@ -449,54 +437,51 @@ print my_person.get_fullname()
     </item>
     
     <item>
-      <title>07 Argparse</title>
-      <link>/07-Argparse.html</link>
+      <title>07 List Comprehensions</title>
+      <link>/07-ListComprehensions.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/07-Argparse.html</guid>
-      <description>&lt;p&gt;A Great exanple of the use of argparse is the django-admin.py docs:&lt;/p&gt;
+      <guid>/07-ListComprehensions.html</guid>
+      <description>&lt;p&gt;&lt;sub&gt;(Excerpt from &lt;a href=&#34;https://docs.python.org/2/tutorial/datastructures.html&#34;&gt;Python&amp;rsquo;s Official Documentation&lt;/a&gt;)&lt;/sub&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ django-admin.py -h
-Usage: django-admin.py subcommand [options] [args]
+&lt;p&gt;&lt;strong&gt;List comprehensions&lt;/strong&gt; provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.&lt;/p&gt;
 
-Options:
-  -v VERBOSITY, --verbosity=VERBOSITY
-                        Verbosity level; 0=minimal output, 1=normal output,
-                        2=verbose output, 3=very verbose output
-  --settings=SETTINGS   The Python path to a settings module, e.g.
-                        &amp;quot;myproject.settings.main&amp;quot;. If this isn&#39;t provided, the
-                        DJANGO_SETTINGS_MODULE environment variable will be
-                        used.
-  --pythonpath=PYTHONPATH
-                        A directory to add to the Python path, e.g.
-                        &amp;quot;/home/djangoprojects/myproject&amp;quot;.
-  --traceback           Raise on exception
-  --no-color            Don&#39;t colorize the command output.
-  --version             show program&#39;s version number and exit
-  -h, --help            show this help message and exit
+&lt;p&gt;For example, assume we want to create a list of squares, like:&lt;/p&gt;
 
-Type &#39;django-admin.py help &amp;lt;subcommand&amp;gt;&#39; for help on a specific subcommand.
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; squares = []
+&amp;gt;&amp;gt;&amp;gt; for x in range(10):
+...     squares.append(x**2)
+...
+&amp;gt;&amp;gt;&amp;gt; squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can obtain the same result with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;squares = [x**2 for x in range(10)]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses.&lt;/strong&gt; The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it. For example, this listcomp combines the elements of two lists if they are not equal:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;import argparse
+&lt;p&gt;and it’s equivalent to:&lt;/p&gt;
 
-parser = argparse.ArgumentParser(description=&amp;quot;calculate X to the power of Y&amp;quot;)
-group = parser.add_mutually_exclusive_group()
-group.add_argument(&amp;quot;-v&amp;quot;, &amp;quot;--verbose&amp;quot;, action=&amp;quot;store_true&amp;quot;)
-group.add_argument(&amp;quot;-q&amp;quot;, &amp;quot;--quiet&amp;quot;, action=&amp;quot;store_true&amp;quot;)
-parser.add_argument(&amp;quot;x&amp;quot;, type=int, help=&amp;quot;the base&amp;quot;)
-parser.add_argument(&amp;quot;y&amp;quot;, type=int, help=&amp;quot;the exponent&amp;quot;)
-args = parser.parse_args()
-answer = args.x**args.y
-
-if args.quiet:
-    print answer
-elif args.verbose:
-    print &amp;quot;{} to the power {} equals {}&amp;quot;.format(args.x, args.y, answer)
-else:
-    print &amp;quot;{}^{} == {}&amp;quot;.format(args.x, args.y, answer)
+&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; combs = []
+&amp;gt;&amp;gt;&amp;gt; for x in [1,2,3]:
+...     for y in [3,1,4]:
+...         if x != y:
+...             combs.append((x, y))
+...
+&amp;gt;&amp;gt;&amp;gt; combs
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how the order of the for and if statements is the same in both these snippets.&lt;/p&gt;
 </description>
     </item>
     
@@ -506,13 +491,19 @@ else:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/08-CSVs.html</guid>
-      <description>&lt;pre&gt;&lt;code&gt;import csv
-with open(&#39;test.csv&#39;, &#39;w&#39;, newline=&#39;&#39;) as fp:
-    a = csv.writer(fp, delimiter=&#39;,&#39;)
-    data = [[&#39;Me&#39;, &#39;You&#39;],
-            [&#39;293&#39;, &#39;219&#39;],
-            [&#39;54&#39;, &#39;13&#39;]]
-    a.writerows(data)
+      <description>&lt;p&gt;&lt;sub&gt; &lt;a href=&#34;https://docs.python.org/2/library/csv.html&#34;&gt;https://docs.python.org/2/library/csv.html&lt;/a&gt; &lt;/sub&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import csv
+import sys
+
+f = open(sys.argv[1], &#39;rw&#39;)
+try:
+    reader = csv.reader(f)
+    for row in reader:
+        print row
+finally:
+    f.close()
+
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -594,23 +585,118 @@ print_globvar()
 
 &lt;p&gt;Unless the global variable is explicitly declared within the function as &lt;em&gt;global&lt;/em&gt;, the global variable does not get modified anywhere outside of the scope of that function.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;
-## The Thread object
+&lt;h2 id=&#34;the-thread-object:bd17743a4f2a0809eaae8ba786cb2f0e&#34;&gt;The Thread object&lt;/h2&gt;
 
+&lt;p&gt;&lt;sub&gt; &lt;a href=&#34;https://docs.python.org/2/library/threading.html#thread-objects&#34;&gt;https://docs.python.org/2/library/threading.html#thread-objects&lt;/a&gt; &lt;/sub&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import threading
+import time
+
+var = 0 
+lock = threading.Lock()
+
+def countTo(num):
+    global var 
+    for number in range(num):
+        var += 1
+        print var
+        time.sleep(1)
+
+def Main():
+    thread1 = threading.Thread(target=countTo, args=(5,))
+    thread2 = threading.Thread(target=countTo, args=(8,))
+    thread1.start()
+    thread2.start()
+
+    print &amp;quot;Main finished&amp;quot;
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    Main()
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;import time
-from threading import Thread&lt;/p&gt;
+&lt;h2 id=&#34;the-lock-object:bd17743a4f2a0809eaae8ba786cb2f0e&#34;&gt;the Lock Object&lt;/h2&gt;
 
-&lt;p&gt;def countTo(num):
+&lt;p&gt;&lt;sub&gt; &lt;a href=&#34;https://docs.python.org/2/library/threading.html#lock-objects&#34;&gt;https://docs.python.org/2/library/threading.html#lock-objects&lt;/a&gt; &lt;/sub&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import threading
+import time
+
+var = 0 
+lock = threading.Lock()
+
+def countTo(num):
+    global var 
+    lock.acquire()
     for number in range(num):
-        print number + 1
-        time.sleep(1)&lt;/p&gt;
+        var += 1
+        print var
+        time.sleep(1)
+    lock.release()
+def Main():
+    thread1 = threading.Thread(target=countTo, args=(5,))
+    thread2 = threading.Thread(target=countTo, args=(8,))
+    thread1.start()
+    thread2.start()
 
-&lt;p&gt;thread1 = Thread(target=countTo, args=(5,))
-thread1.start()
-```&lt;/p&gt;
+    print &amp;quot;Main finished&amp;quot;
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    Main()
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>11 Argparse</title>
+      <link>/11-ArgParse.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/11-ArgParse.html</guid>
+      <description>&lt;p&gt;A Great exanple of the use of argparse is the django-admin.py docs:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ django-admin.py -h
+Usage: django-admin.py subcommand [options] [args]
+
+Options:
+  -v VERBOSITY, --verbosity=VERBOSITY
+                        Verbosity level; 0=minimal output, 1=normal output,
+                        2=verbose output, 3=very verbose output
+  --settings=SETTINGS   The Python path to a settings module, e.g.
+                        &amp;quot;myproject.settings.main&amp;quot;. If this isn&#39;t provided, the
+                        DJANGO_SETTINGS_MODULE environment variable will be
+                        used.
+  --pythonpath=PYTHONPATH
+                        A directory to add to the Python path, e.g.
+                        &amp;quot;/home/djangoprojects/myproject&amp;quot;.
+  --traceback           Raise on exception
+  --no-color            Don&#39;t colorize the command output.
+  --version             show program&#39;s version number and exit
+  -h, --help            show this help message and exit
+
+Type &#39;django-admin.py help &amp;lt;subcommand&amp;gt;&#39; for help on a specific subcommand.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;import argparse
+
+parser = argparse.ArgumentParser(description=&amp;quot;calculate X to the power of Y&amp;quot;)
+group = parser.add_mutually_exclusive_group()
+group.add_argument(&amp;quot;-v&amp;quot;, &amp;quot;--verbose&amp;quot;, action=&amp;quot;store_true&amp;quot;)
+group.add_argument(&amp;quot;-q&amp;quot;, &amp;quot;--quiet&amp;quot;, action=&amp;quot;store_true&amp;quot;)
+parser.add_argument(&amp;quot;x&amp;quot;, type=int, help=&amp;quot;the base&amp;quot;)
+parser.add_argument(&amp;quot;y&amp;quot;, type=int, help=&amp;quot;the exponent&amp;quot;)
+args = parser.parse_args()
+answer = args.x**args.y
+
+if args.quiet:
+    print answer
+elif args.verbose:
+    print &amp;quot;{} to the power {} equals {}&amp;quot;.format(args.x, args.y, answer)
+else:
+    print &amp;quot;{}^{} == {}&amp;quot;.format(args.x, args.y, answer)
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

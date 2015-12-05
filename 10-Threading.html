@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Intermediate Python Workshop - Dec 5, 2015 </title>
   <meta name="author" content="">
-  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="description" content="WiMLDS Intermediate Python Workshop">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -21,7 +21,7 @@
   <div class="wrap">
     <header class="mb">
       <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
-      <p>WIML Intermediate Python Workshop</p>
+      <p>WiMLDS Intermediate Python Workshop</p>
     </header>
 
 
@@ -49,23 +49,66 @@ print_globvar()
 
 <p>Unless the global variable is explicitly declared within the function as <em>global</em>, the global variable does not get modified anywhere outside of the scope of that function.</p>
 
-<pre><code>
-## The Thread object
+<h2 id="the-thread-object:bd17743a4f2a0809eaae8ba786cb2f0e">The Thread object</h2>
 
+<p><sub> <a href="https://docs.python.org/2/library/threading.html#thread-objects">https://docs.python.org/2/library/threading.html#thread-objects</a> </sub></p>
+
+<pre><code>import threading
+import time
+
+var = 0 
+lock = threading.Lock()
+
+def countTo(num):
+    global var 
+    for number in range(num):
+        var += 1
+        print var
+        time.sleep(1)
+
+def Main():
+    thread1 = threading.Thread(target=countTo, args=(5,))
+    thread2 = threading.Thread(target=countTo, args=(8,))
+    thread1.start()
+    thread2.start()
+
+    print &quot;Main finished&quot;
+
+if __name__ == &quot;__main__&quot;:
+    Main()
 
 </code></pre>
 
-<p>import time
-from threading import Thread</p>
+<h2 id="the-lock-object:bd17743a4f2a0809eaae8ba786cb2f0e">the Lock Object</h2>
 
-<p>def countTo(num):
+<p><sub> <a href="https://docs.python.org/2/library/threading.html#lock-objects">https://docs.python.org/2/library/threading.html#lock-objects</a> </sub></p>
+
+<pre><code>import threading
+import time
+
+var = 0 
+lock = threading.Lock()
+
+def countTo(num):
+    global var 
+    lock.acquire()
     for number in range(num):
-        print number + 1
-        time.sleep(1)</p>
+        var += 1
+        print var
+        time.sleep(1)
+    lock.release()
+def Main():
+    thread1 = threading.Thread(target=countTo, args=(5,))
+    thread2 = threading.Thread(target=countTo, args=(8,))
+    thread1.start()
+    thread2.start()
 
-<p>thread1 = Thread(target=countTo, args=(5,))
-thread1.start()
-```</p>
+    print &quot;Main finished&quot;
+
+if __name__ == &quot;__main__&quot;:
+    Main()
+
+</code></pre>
 
   <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
 </article>

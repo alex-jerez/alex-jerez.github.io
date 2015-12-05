@@ -31,7 +31,7 @@
   </url>
   
   <url>
-    <loc>/07-Argparse.html</loc>
+    <loc>/07-ListComprehensions.html</loc>
   </url>
   
   <url>
@@ -44,6 +44,10 @@
   
   <url>
     <loc>/10-Threading.html</loc>
+  </url>
+  
+  <url>
+    <loc>/11-ArgParse.html</loc>
   </url>
   
 </urlset>

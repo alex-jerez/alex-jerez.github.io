@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Intermediate Python Workshop - Dec 5, 2015 </title>
   <meta name="author" content="">
-  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="description" content="WiMLDS Intermediate Python Workshop">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -21,7 +21,7 @@
   <div class="wrap">
     <header class="mb">
       <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
-      <p>WIML Intermediate Python Workshop</p>
+      <p>WiMLDS Intermediate Python Workshop</p>
     </header>
 
 
@@ -29,6 +29,78 @@
 <article class="post">
   <h1><a href="./02-DataStructures.html" title="02 Data Structures">02 Data Structures</a></h1>
   
+
+<h2 id="the-list:6c3c8caa6c1b6efe364c1f1c44dae28b">The List</h2>
+
+<p>A List is an unordered list of items that can be modified (mutable).  Lists might contain items of different types, but usually the items all have the same type.</p>
+
+<p>common list actions:</p>
+
+<pre><code>append()
+remove()
+pop()
+index()
+reverse()
+</code></pre>
+
+<pre><code>x = [3,6,8,3,8,5,35,54]
+
+y = [[4,6,2], [7,9,4], [6,9,5]]
+
+</code></pre>
+
+<h2 id="the-dictionary:6c3c8caa6c1b6efe364c1f1c44dae28b">The Dictionary</h2>
+
+<p>A <strong>dictionary</strong> is an unordered set of key: value pairs</p>
+
+<pre><code># create dictionary 'd'
+
+d = {'firstname': 'Robert', 'age': 40, 'email': 'robert.smith@email.com'}
+
+&gt;&gt;&gt; d['firstname']
+'Robert'
+
+# use a for loop to iterate over dictionary 'd'
+
+
+&gt;&gt;&gt; for x in d:
+...     print x
+... 
+age
+email
+firstname
+
+# unpack d
+
+&gt;&gt;&gt; for x,y in d.items():
+...     print x
+...     print y
+... 
+age
+40
+email
+robert.smith@email.com
+firstname
+Robert
+&gt;&gt;&gt; 
+
+
+</code></pre>
+
+<h2 id="the-tuple:6c3c8caa6c1b6efe364c1f1c44dae28b">The Tuple</h2>
+
+<p>Tuples are an ordered list of items similar to a list, but cannot be modified (immutable), and usually contains an heterogeneous sequence of elements that are accessed via unpacking rather than iterating, like with lists.</p>
+
+<pre><code>&gt;&gt;&gt; x, y, z = (12345, 54321, 'hello!')
+&gt;&gt;&gt; x
+12345
+&gt;&gt;&gt; y
+54321
+&gt;&gt;&gt; z
+'hello!'
+
+</code></pre>
+
   <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
 </article>
 </main>

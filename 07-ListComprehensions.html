@@ -1,0 +1,77 @@
+<!doctype html> 
+<html lang="en-us"> 
+<head>
+  <meta charset="utf-8">
+  <title>Intermediate Python Workshop - Dec 5, 2015 </title>
+  <meta name="author" content="">
+  <meta name="description" content="WiMLDS Intermediate Python Workshop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="icon" href="./favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="./apple-touch-icon.png" />
+  
+  
+  <link rel="stylesheet" href="./style.css" />
+  <link href='//fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+  <div class="wrap">
+    <header class="mb">
+      <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
+      <p>WiMLDS Intermediate Python Workshop</p>
+    </header>
+
+
+<main>
+<article class="post">
+  <h1><a href="./07-ListComprehensions.html" title="07 List Comprehensions">07 List Comprehensions</a></h1>
+  <p><sub>(Excerpt from <a href="https://docs.python.org/2/tutorial/datastructures.html">Python&rsquo;s Official Documentation</a>)</sub></p>
+
+<p><strong>List comprehensions</strong> provide a concise way to create lists. Common applications are to make new lists where each element is the result of some operations applied to each member of another sequence or iterable, or to create a subsequence of those elements that satisfy a certain condition.</p>
+
+<p>For example, assume we want to create a list of squares, like:</p>
+
+<pre><code>&gt;&gt;&gt; squares = []
+&gt;&gt;&gt; for x in range(10):
+...     squares.append(x**2)
+...
+&gt;&gt;&gt; squares
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</code></pre>
+
+<p>We can obtain the same result with:</p>
+
+<pre><code>squares = [x**2 for x in range(10)]
+</code></pre>
+
+<p><strong>A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses.</strong> The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it. For example, this listcomp combines the elements of two lists if they are not equal:</p>
+
+<pre><code>&gt;&gt;&gt; [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+
+</code></pre>
+
+<p>and it’s equivalent to:</p>
+
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; combs = []
+&gt;&gt;&gt; for x in [1,2,3]:
+...     for y in [3,1,4]:
+...         if x != y:
+...             combs.append((x, y))
+...
+&gt;&gt;&gt; combs
+[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]
+</code></pre>
+
+<p>Note how the order of the for and if statements is the same in both these snippets.</p>
+
+  <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
+</article>
+</main>
+</div>
+</body>
+</html>

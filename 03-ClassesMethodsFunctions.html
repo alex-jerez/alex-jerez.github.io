@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Intermediate Python Workshop - Dec 5, 2015 </title>
   <meta name="author" content="">
-  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="description" content="WiMLDS Intermediate Python Workshop">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -21,7 +21,7 @@
   <div class="wrap">
     <header class="mb">
       <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
-      <p>WIML Intermediate Python Workshop</p>
+      <p>WiMLDS Intermediate Python Workshop</p>
     </header>
 
 
@@ -53,6 +53,31 @@ HEY
 &gt;&gt;&gt; 
 </code></pre>
 
+<h2 id="args-and-kwargs:d03ab93178de607784a26d77dfb0842f">*args and **kwargs</h2>
+
+<p>adding *args and **kwargs to your function lets your function accept any argument. This is helpful for when you don&rsquo;t know what variables you will be expecting.</p>
+
+<p>*args catches all positional arguments</p>
+
+<p>**kwargs catches all the keyword arguments.</p>
+
+<pre><code>def printeverything(*args, **kwargs):
+    for item in args:
+        print item
+    for key, value in kwargs.items():
+        print key, value
+</code></pre>
+
+<p>This function <code>printeverything()</code> can now accept as many arguments and keyword arguments as you can throw at it.</p>
+
+<pre><code>def printeverything(*args, **kwargs):
+    for item in args:
+        print item
+    for key, value in kwargs.items():
+        print key, value
+
+</code></pre>
+
 <h2 id="classes-methods:d03ab93178de607784a26d77dfb0842f">Classes &amp; Methods</h2>
 
 <pre><code>class TransportationVehicle(object):
@@ -77,27 +102,37 @@ class Car(TransportationVehicle):
                 self.year,
                 self.make)
 
-    @staticmethod
-    def honk():
-        print &quot;HONK!&quot;
+
+</code></pre>
+
+<pre><code>car_one = Car(&quot;red&quot;, 2005, &quot;Toyota&quot;)
+car_two = Car(&quot;black&quot;, 2001, &quot;Honda&quot;)
+
+
 </code></pre>
 
 <h3 id="static-methods:d03ab93178de607784a26d77dfb0842f">Static Methods</h3>
 
-<h3 id="class-methods:d03ab93178de607784a26d77dfb0842f">Class Methods</h3>
+<p>a <strong>static method</strong> is a function inside of your class that doesn&rsquo;t depend on the class object. By adding a <code>@staticmethod</code> decorator to your function, it becomes a static method.</p>
 
-<pre><code>    car_one = Car(&quot;red&quot;, 2005, &quot;Toyota&quot;)
-    car_two = Car(&quot;black&quot;, 2001, &quot;Honda&quot;)
-
+<pre><code>    @staticmethod
+    def honk():
+        print &quot;HONK!&quot;
 </code></pre>
 
-<pre><code>f = open('cars.txt', 'rw')
-num = 0
-var = dict()
-for line in f:
-    l = line.split('-')
-    var[num] = Car(l[0],l[1], l[2]) 
-    num += 1
+<h3 id="class-methods:d03ab93178de607784a26d77dfb0842f">Class Methods</h3>
+
+<p>a <strong>class method</strong> is another type of function inside of your class that <em>has</em> to take a class object as the first argument.</p>
+
+<p>Note that this is different from accepting an <em>instance</em> of the class. This means that the function can return a class type that contains all the original functions and attributes.</p>
+
+<p>A common use case for class methods are for initializing classes under arbitrary conditions.</p>
+
+<pre><code>@classmethod
+def honkAndSay(cls, word):
+    cls.honk()
+    print word
+ 
 </code></pre>
 
   <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>

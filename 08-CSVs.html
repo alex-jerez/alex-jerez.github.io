@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Intermediate Python Workshop - Dec 5, 2015 </title>
   <meta name="author" content="">
-  <meta name="description" content="WIML Intermediate Python Workshop">
+  <meta name="description" content="WiMLDS Intermediate Python Workshop">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
@@ -21,20 +21,26 @@
   <div class="wrap">
     <header class="mb">
       <h1 class="h2 m-0" style="margin:0 auto"><a href="./">Intermediate Python Workshop - Dec 5, 2015 </a></h1>
-      <p>WIML Intermediate Python Workshop</p>
+      <p>WiMLDS Intermediate Python Workshop</p>
     </header>
 
 
 <main>
 <article class="post">
   <h1><a href="./08-CSVs.html" title="08 CSVs">08 CSVs</a></h1>
-  <pre><code>import csv
-with open('test.csv', 'w', newline='') as fp:
-    a = csv.writer(fp, delimiter=',')
-    data = [['Me', 'You'],
-            ['293', '219'],
-            ['54', '13']]
-    a.writerows(data)
+  <p><sub> <a href="https://docs.python.org/2/library/csv.html">https://docs.python.org/2/library/csv.html</a> </sub></p>
+
+<pre><code>import csv
+import sys
+
+f = open(sys.argv[1], 'rw')
+try:
+    reader = csv.reader(f)
+    for row in reader:
+        print row
+finally:
+    f.close()
+
 </code></pre>
 
   <p class="small gray"><time datetime="0001-01-120">Jan 01, 0001</time></p>
